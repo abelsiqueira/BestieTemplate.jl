@@ -59,7 +59,18 @@ LicenseCopyrightHolders:
   default: "{{ Authors | regex_replace('\\s*([^,]*)\\s*<[^,]*>[^,]*', '\\\\1') | regex_replace('\\s*,\\s*', ', ') | trim }}"
   validator: "{% if LicenseCopyrightHolders | length == 0%}Can't be empty{% endif %}"
 
+StyleGuide:
+  type: str
+  help: Do you want to follow any particular style guide?
+  choices:
+    None (use BestieTemplate default formatting): none
+    Blue Style: blue
+    YAS Style: yas
+    SciML Style: sciml
+  default: none
+
 Indentation:
+  when: "{{ StyleGuide == 'none' }}"
   type: int
   help: Indentation length (Used in .JuliaFormatter and other configuration files of formatters and linters if you add them)
   validator: "{% if Indentation <= 0 %}Indentation must be positive{% endif %}"
