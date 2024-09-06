@@ -61,7 +61,7 @@ LicenseCopyrightHolders:
 
 StyleGuide:
   type: str
-  help: Do you want to follow any particular style guide?
+  help: Julia formatting style (Do you want to follow any particular style guide?)
   choices:
     None (use BestieTemplate default formatting): none
     Blue Style: blue
