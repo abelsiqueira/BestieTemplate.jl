@@ -44,6 +44,15 @@ repos:
     rev: v1.35.1
     hooks:
       - id: yamllint
+  - repo: local
+    hooks:
+      - id: explicit-imports
+        name: ExplicitImports checks
+        entry: .github/scripts/explicit-imports.sh
+        args: [BestieTemplate]
+        files: ^src.*\.jl$
+        language: script
+        pass_filenames: false
   - repo: https://github.com/domluna/JuliaFormatter.jl
     rev: v1.0.60
     hooks:
