@@ -46,6 +46,7 @@ Breaking notice:
 - New question: `CodeOfConductContact`, the contact person/entity for the `CODE_OF_CONDUCT.md` file (#426)
 - New question: `LicenseCopyrightHolders`, the copyright holders listed in the LICENSE (#427)
 - New question: `Authors`, a comma separated list of authors. (#118)
+- New question: `StyleGuide`, which lets the user choose among popular styleguides (SciML, Blue, YAS) (#440)
 
 ### Changed
 
@@ -53,6 +54,7 @@ Breaking notice:
   - JuliaFormatter 1.0.58 -> 1.0.60
 - Default Indentation changed from 2 to 4 (#403)
 - Change lychee configuration to a hidden file `.lychee.toml`
+- `Indentation` is asked only if no predefined style guide is selected (#440)
 
 ### Deprecated
 

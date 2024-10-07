@@ -101,7 +101,18 @@ LicenseCopyrightHolders:
     Defaults to names in the Authors question, if they follow the recommended format.
     For instance, if the Authors field is "NAME1 <EMAIL1>,NAME2 <EMAIL2>", this will default to "NAME1, NAME2".
 
+StyleGuide:
+  type: str
+  help: Julia formatting style (Do you want to follow any particular style guide?)
+  choices:
+    None (use BestieTemplate default formatting): none
+    Blue Style: blue
+    YAS Style: yas
+    SciML Style: sciml
+  default: none
+
 Indentation:
+  when: "{{ StyleGuide == 'none' }}"
   type: int
   help: Indentation length (Used in .JuliaFormatter and other configuration files of formatters and linters if you add them)
   validator: "{% if Indentation <= 0 %}Indentation must be positive{% endif %}"
