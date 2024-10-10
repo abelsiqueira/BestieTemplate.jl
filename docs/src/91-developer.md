@@ -341,3 +341,24 @@ This test will run `generate` using the local `main` branch (which won't contain
 - Make sure that nothing depends on the old question
 - If necessary, change some `default` values to use the deprecated questions, to ensure a smooth transition.
 - Remove the question in the next release
+
+## Errors in "Test updating from main to HEAD vs generate in HEAD"
+
+The test "Test updating from main to HEAD vs generate in HEAD" from file `test/test-bestie-specific-api` compares two generated packages:
+
+1. Run the `generate` command using the template from the `main` branch and then run the `update` command to update to `HEAD`.
+2. Run the `generate` command using the template from `HEAD`.
+
+This will check that users of the current version of the package will not have a bad time updating.
+
+However, some changes will unavoidably break this test.
+For instance, when the LTS version changes between `main` and `HEAD`, the file `Project.toml` won't be updated, because it is skipped if it exists.
+This will be a breaking change that requires manual intervention.
+
+To avoid breaking the whole test pipeline, we use the environment variable `SKIP_UPDATE_TEST` to disable the test.
+To use this, do the following:
+
+Here's a summary of what to do:
+
+- `SKIP_UPDATE_TEST`
+- Add a breaking notice to the CHANGELOG informing what is going to happen to users and what they need to do to manually fix the problem.
