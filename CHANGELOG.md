@@ -216,6 +216,8 @@ BREAKING NOTICE:
 - New question: `AddFormatterAndLinterConfigFiles` to include configuration files for linters and formatters.
 - New function: `new_pkg_quick`, for a non-interactive way to create a new package.
 - Functions `generate` and `apply` have new methods accepting `:local` and `:online`.
+- (Postfix edit 2026-08-10) New question: `StrategyConfirmIncluded` to confirm each item included by the chosen strategy level.
+- (Postfix edit 2026-08-10) New question: `StrategyReviewExcluded` to review each item excluded by the chosen strategy level.
 
 ### Changed
 
